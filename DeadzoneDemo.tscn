@@ -1,0 +1,265 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://background-blur.jpg" type="Texture" id=1]
+[ext_resource path="res://Left Trigger.gd" type="Script" id=2]
+[ext_resource path="res://Right Trigger.gd" type="Script" id=3]
+[ext_resource path="res://Left Analog Stick.gd" type="Script" id=4]
+[ext_resource path="res://Circle2D.gd" type="Script" id=5]
+[ext_resource path="res://Right Analog Stick.gd" type="Script" id=6]
+[ext_resource path="res://Button.gd" type="Script" id=7]
+
+[node name="DeadzoneDemo" type="Node2D"]
+
+[node name="background-blur" type="Sprite" parent="."]
+position = Vector2( 469.517, 303.658 )
+scale = Vector2( 0.806811, 0.806811 )
+texture = ExtResource( 1 )
+
+[node name="Left Trigger" type="Node2D" parent="."]
+position = Vector2( 50, 70 )
+script = ExtResource( 2 )
+
+[node name="InputBackground" type="Line2D" parent="Left Trigger"]
+modulate = Color( 1, 1, 1, 0.270588 )
+position = Vector2( -15, 50 )
+points = PoolVector2Array( 0, -100, 0, 0 )
+default_color = Color( 1, 1, 1, 1 )
+texture_mode = 3080292
+
+[node name="Input" type="Line2D" parent="Left Trigger"]
+position = Vector2( -15, 50 )
+points = PoolVector2Array( 0, -100, 0, 0 )
+default_color = Color( 0, 0.368627, 1, 1 )
+texture_mode = 3080292
+
+[node name="OutputBackground" type="Line2D" parent="Left Trigger"]
+modulate = Color( 1, 1, 1, 0.266667 )
+position = Vector2( 15, 50 )
+points = PoolVector2Array( 0, -100, 0, 0 )
+default_color = Color( 1, 0.843137, 0.639216, 1 )
+texture_mode = 3080292
+
+[node name="Output" type="Line2D" parent="Left Trigger"]
+position = Vector2( 15, 50 )
+points = PoolVector2Array( 0, -100, 0, 0 )
+default_color = Color( 1, 0.627451, 0.0980392, 1 )
+texture_mode = 3080292
+
+[node name="Right Trigger" type="Node2D" parent="."]
+position = Vector2( 550, 70 )
+script = ExtResource( 3 )
+
+[node name="InputBackground" type="Line2D" parent="Right Trigger"]
+modulate = Color( 1, 1, 1, 0.270588 )
+position = Vector2( -15, 50 )
+points = PoolVector2Array( 0, -100, 0, 0 )
+default_color = Color( 1, 1, 1, 1 )
+texture_mode = 3080292
+
+[node name="Input" type="Line2D" parent="Right Trigger"]
+position = Vector2( -15, 50 )
+points = PoolVector2Array( 0, -100, 0, 0 )
+default_color = Color( 0, 0.368627, 1, 1 )
+texture_mode = 3080292
+
+[node name="OutputBackground" type="Line2D" parent="Right Trigger"]
+modulate = Color( 1, 1, 1, 0.270588 )
+position = Vector2( 15, 50 )
+points = PoolVector2Array( 0, -100, 0, 0 )
+default_color = Color( 1, 1, 1, 1 )
+texture_mode = 3080292
+
+[node name="Output" type="Line2D" parent="Right Trigger"]
+position = Vector2( 15, 50 )
+points = PoolVector2Array( 0, -100, 0, 0 )
+default_color = Color( 1, 0.627451, 0.0980392, 1 )
+texture_mode = 3080292
+
+[node name="Left Analog Stick" type="Node2D" parent="."]
+position = Vector2( 175, 175 )
+script = ExtResource( 4 )
+
+[node name="Background" type="Node2D" parent="Left Analog Stick"]
+modulate = Color( 1, 1, 1, 0.270588 )
+script = ExtResource( 5 )
+radius = 100.0
+
+[node name="Input" type="Node2D" parent="Left Analog Stick"]
+script = ExtResource( 5 )
+radius = 30.0
+color = Color( 0, 0.392157, 1, 1 )
+
+[node name="Custom" type="Node2D" parent="Left Analog Stick"]
+script = ExtResource( 5 )
+radius = 25.0
+color = Color( 0.0941176, 0.760784, 0, 1 )
+
+[node name="Naive" type="Node2D" parent="Left Analog Stick"]
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 1, 0.701961, 0, 1 )
+
+[node name="Right Analog Stick" type="Node2D" parent="."]
+position = Vector2( 425.945, 425 )
+script = ExtResource( 6 )
+
+[node name="Background" type="Node2D" parent="Right Analog Stick"]
+modulate = Color( 1, 1, 1, 0.270588 )
+script = ExtResource( 5 )
+radius = 100.0
+
+[node name="Input" type="Node2D" parent="Right Analog Stick"]
+script = ExtResource( 5 )
+radius = 30.0
+color = Color( 0, 0.392157, 1, 1 )
+
+[node name="Custom" type="Node2D" parent="Right Analog Stick"]
+script = ExtResource( 5 )
+radius = 25.0
+color = Color( 0.0941176, 0.760784, 0, 1 )
+
+[node name="Naive" type="Node2D" parent="Right Analog Stick"]
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 1, 0.701961, 0, 1 )
+
+[node name="ABXY" type="Node2D" parent="."]
+position = Vector2( 425, 175 )
+
+[node name="BackgroundA" type="Node2D" parent="ABXY"]
+modulate = Color( 1, 1, 1, 0.270588 )
+position = Vector2( 0, 50 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.941176, 1, 1, 1 )
+
+[node name="ButtonA" type="Node2D" parent="ABXY"]
+script = ExtResource( 7 )
+
+[node name="A" type="Node2D" parent="ABXY/ButtonA"]
+position = Vector2( 0, 50 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.376471, 0.737255, 0.14902, 1 )
+
+[node name="BackgroundB" type="Node2D" parent="ABXY"]
+modulate = Color( 1, 1, 1, 0.270588 )
+position = Vector2( 50, 0 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.941176, 1, 1, 1 )
+
+[node name="ButtonB" type="Node2D" parent="ABXY"]
+script = ExtResource( 7 )
+action = "button_b"
+
+[node name="B" type="Node2D" parent="ABXY/ButtonB"]
+position = Vector2( 50, 0 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.807843, 0.152941, 0.152941, 1 )
+
+[node name="BackgroundX" type="Node2D" parent="ABXY"]
+modulate = Color( 1, 1, 1, 0.270588 )
+position = Vector2( -50, 0 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.941176, 1, 1, 1 )
+
+[node name="ButtonX" type="Node2D" parent="ABXY"]
+script = ExtResource( 7 )
+action = "button_x"
+
+[node name="X" type="Node2D" parent="ABXY/ButtonX"]
+position = Vector2( -50, 0 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.141176, 0.396078, 1, 1 )
+
+[node name="BackgroundY" type="Node2D" parent="ABXY"]
+modulate = Color( 1, 1, 1, 0.270588 )
+position = Vector2( 0, -50 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.941176, 1, 1, 1 )
+
+[node name="ButtonY" type="Node2D" parent="ABXY"]
+script = ExtResource( 7 )
+action = "button_y"
+
+[node name="Y" type="Node2D" parent="ABXY/ButtonY"]
+position = Vector2( 0, -50 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 1, 0.690196, 0.101961, 1 )
+
+[node name="DPad" type="Node2D" parent="."]
+position = Vector2( 175, 425 )
+
+[node name="RightBG" type="Node2D" parent="DPad"]
+modulate = Color( 1, 1, 1, 0.270588 )
+position = Vector2( 50, 0 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.941176, 1, 1, 1 )
+
+[node name="ButtonRight" type="Node2D" parent="DPad"]
+script = ExtResource( 7 )
+action = "button_right"
+
+[node name="Right" type="Node2D" parent="DPad/ButtonRight"]
+position = Vector2( 50, 0 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.2, 0.2, 0.2, 1 )
+
+[node name="LeftBG" type="Node2D" parent="DPad"]
+modulate = Color( 1, 1, 1, 0.270588 )
+position = Vector2( -50, 0 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.941176, 1, 1, 1 )
+
+[node name="ButtonLeft" type="Node2D" parent="DPad"]
+script = ExtResource( 7 )
+action = "button_left"
+
+[node name="Left" type="Node2D" parent="DPad/ButtonLeft"]
+position = Vector2( -50, 0 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.2, 0.2, 0.2, 1 )
+
+[node name="DownBG" type="Node2D" parent="DPad"]
+modulate = Color( 1, 1, 1, 0.270588 )
+position = Vector2( 0, 50 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.941176, 1, 1, 1 )
+
+[node name="ButtonDown" type="Node2D" parent="DPad"]
+script = ExtResource( 7 )
+action = "button_down"
+
+[node name="Down" type="Node2D" parent="DPad/ButtonDown"]
+position = Vector2( 0, 50 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.2, 0.2, 0.2, 1 )
+
+[node name="UpBG" type="Node2D" parent="DPad"]
+modulate = Color( 1, 1, 1, 0.270588 )
+position = Vector2( 0, -50 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.941176, 1, 1, 1 )
+
+[node name="ButtonUp" type="Node2D" parent="DPad"]
+script = ExtResource( 7 )
+action = "button_up"
+
+[node name="Up" type="Node2D" parent="DPad/ButtonUp"]
+position = Vector2( 0, -50 )
+script = ExtResource( 5 )
+radius = 20.0
+color = Color( 0.2, 0.2, 0.2, 1 )
